@@ -1,1 +1,83 @@
-<p>login works!</p>
+<div class="login">
+    <div *ngIf="regLogin" class="login-left">
+        <div class="login-left-container">
+            <a href="/" class="login-left-logo">
+                SeturCaravan
+            </a>
+            <p class="login-left-desc">
+                Kiralık araç filosunda her segmente yer veren Avis, geniş bir kiralık araç filosuna sahiptir.
+            </p>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="login-left-input">
+                    <span class="login-left-input-heading">E-Posta</span>
+                    <input type="text" name="username" [(ngModel)]="form.username" required #username="ngModel" placeholder="mail@setur.com" />
+                </div>
+                <div class="login-left-input login-left-password">
+                    <span class="login-left-input-heading">Şifre</span>
+                    <input type="password" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" placeholder="" />
+                </div>
+                <div class="login-left-subinfo">
+                    <div class="login-left-subinfo-rememberme">
+
+                    </div>
+                    <div class="login-left-subinfo-forgetPassword">
+                        <a href="/forgetpassword">Şifremi Unuttum!</a>
+                    </div>
+                </div>
+                <button class="login-left-button">Giriş Yap</button>
+            </form>
+            <div class="login-left-signup">
+                Henüz kayıt olmadın mı? <a (click)="change()">Yeni Hesap Oluştur</a>
+            </div>
+            <div class="login-left-footer">SeturCaravan © 2021</div>
+        </div>
+    </div>
+    <div *ngIf="!regLogin" class="login-left">
+        <div class="login-left-container">
+            <a href="/" class="login-left-logo">
+                MENTÖRBUL
+            </a>
+            <p class="login-left-desc">
+                Kiralık araç filosunda her segmente yer veren Avis, geniş bir kiralık araç filosuna sahiptir.
+            </p>
+
+            <div class="login-left-fullinput">
+                <div class="login-left-input">
+                    <span class="login-left-input-heading">Adınız *</span>
+                    <input type="text" placeholder="Adınız" />
+                </div>
+                <div class="login-left-input">
+                    <span class="login-left-input-heading">Soyadınız *</span>
+                    <input type="text" placeholder="Soyadınız" />
+                </div>
+            </div>
+            <form action="">
+                <div class="login-left-input login-left-password">
+                    <span class="login-left-input-heading">
+                        E-posta Adresiniz *
+                    </span>
+                    <input type="text" placeholder="mail@setur.com" />
+                </div>
+                <div class="login-left-input login-left-password">
+                    <span class="login-left-input-heading">Şifre *</span>
+                    <input type="text" placeholder="En az 8 karakter" />
+                </div>
+                <div class="login-left-subinfo">
+                    <div class="login-left-subinfo-rememberme">
+
+                    </div>
+                    <div class="login-left-subinfo-forgetPassword">
+                        <a href="/forgetpassword">Şifremi Unuttum!</a>
+                    </div>
+                </div>
+                <button class="login-left-button">Kayıt Ol</button>
+            </form>
+            <div class="login-left-signup">
+                Hesabın var mı? <a (click)="change()">Giriş Yap</a>
+            </div>
+            <div class="login-left-footer">SeturCaravan © 2021</div>
+        </div>
+    </div>
+    <div class="login-right">
+    </div>
+</div>
