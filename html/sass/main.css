@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+}
+
+*:focus {
+  outline: none;
+}
+/*# sourceMappingURL=main.css.map */
