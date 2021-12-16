@@ -1,0 +1,579 @@
+$boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+$red: #d4002a;
+$darkred: #ca0028;
+$softgray: #f9f9f9;
+$bordergray: #dddddd;
+$radius: 8px;
+$radius_small: 4px;
+* {
+    box-sizing: border-box;
+}
+
+@mixin mq($width: "tablet") {
+    @if ($width=="mobile") {
+        @media (min-width: 560px) {
+            @content;
+        }
+    }
+    @else if ($width=="tablet") {
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if($width=="desktop") {
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if($width=="large") {
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+}
+
+.carousel-cell {
+    height: 450px;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 90%;
+    @include mq("tablet") {
+        width: 45%;
+    }
+    @include mq("desktop") {
+        width: 45%;
+    }
+    @include mq("large") {
+        width: 27%;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+        height: 450px;
+    }
+}
+
+#img360 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 500px;
+    height: 400px;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+    height: 100vh;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 1200px;
+        height: 100%;
+    }
+}
+
+// * {
+//   box-sizing: border-box;
+// }
+// .carousel {
+//   background: #fafafa;
+//   height: 450px;
+// }
+// .flickity-slider .carousel-cell {
+//   width: 600px;
+//   height: 450px;
+//   margin-right: 10px;
+//   border-radius: 5px;
+//   .foto {
+//     height: 450px;
+//     width: 600px;
+//   }
+// }
+// .carousel.is-fullscreen .carousel-cell {
+//   height: 100%;
+// }
+// .is-fullscreen .flickity-viewport .flickity-slider .carousel-cell {
+//   width: 1200px;
+// }
+// .is-fullscreen .flickity-viewport .flickity-slider .carousel-cell .foto {
+//   width: 1200px;
+// }
+.caravanMain {
+    margin-top: 30px;
+    .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+    }
+    &-content {
+        width: 820px;
+        &-heading {
+            display: flex;
+            justify-content: space-between;
+            &-title {
+                font-size: 48px;
+                font-weight: bold;
+            }
+            &-photo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        &-location {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            &-icon {
+                line-height: 1;
+            }
+            &-cityname {
+                margin-left: 12px;
+                font-size: 24px;
+                font-weight: 600;
+                color: $red;
+            }
+        }
+        &-subinfo {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            &-item {
+                font-size: 16px;
+                font-weight: 500;
+                &::after {
+                    content: "•";
+                    padding-left: 16px;
+                    padding-right: 16px;
+                    color: $red;
+                }
+                &:nth-child(3)::after {
+                    content: "";
+                }
+            }
+        }
+        &-shortdetails {
+            margin-top: 24px;
+            font-size: 16px;
+        }
+        &-boxinfo {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 24px;
+            &-item {
+                padding: 16px;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+                width: calc(25% - 23px);
+                min-height: 120px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover {
+                    background-color: #f5f5f5;
+                    transition: 0.4s;
+                }
+                &-icon {}
+                &-title {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                &-detail {
+                    font-size: 12px;
+                }
+            }
+        }
+        &-importantSpec {
+            background-color: #f2f5f8;
+            margin-top: 36px;
+            border-radius: 8px;
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-top: 16px;
+                gap: 16px;
+                &-item {
+                    display: flex;
+                    align-items: center;
+                    &-icon {
+                        line-height: 1;
+                    }
+                    &-details {
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        &-vehicle {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                margin-top: 20px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+                &-item {
+                    width: calc(50% - 16px);
+                    display: flex;
+                    &-heading {
+                        font-size: 16px;
+                        font-weight: 600;
+                        min-width: 50%;
+                    }
+                    &-text {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        &-vehicleFeatures {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                margin-top: 20px;
+                width: 100%;
+                display: flex;
+                height: 360px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap: 8px;
+                &-item {
+                    width: calc(50% - 16px);
+                    display: flex;
+                    height: 32px;
+                    &-icon {}
+                    &-text {
+                        margin-left: 8px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .nevresim {
+                height: 36px;
+                width: 100%;
+                .caravanMain-content-vehicleFeatures-list-item {
+                    width: 100%;
+                }
+            }
+            .guvenlik {
+                height: 72px;
+                width: 100%;
+                .caravanMain-content-vehicleFeatures-list-item {}
+            }
+        }
+        &-vehicleLocation {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-map {
+                margin-top: 24px;
+            }
+        }
+        &-datetime {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-map {
+                margin-top: 24px;
+            }
+        }
+        &-rules {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                margin-top: 20px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                &-item {
+                    display: flex;
+                    height: 32px;
+                    &-icon {
+                        line-height: 1;
+                    }
+                    &-detail {
+                        margin-left: 8px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        &-price {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 16px;
+                &-item {
+                    display: flex;
+                    &-title {
+                        font-size: 16px;
+                        font-weight: 600;
+                        display: flex;
+                        width: 25%;
+                    }
+                    &-detail {
+                        display: flex;
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        &-cancelation {
+            margin-top: 24px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-detail {
+                margin-top: 16px;
+            }
+        }
+        &-review {
+            margin-top: 24px;
+            margin-bottom: 48px;
+            &-heading {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-list {
+                margin-top: 24px;
+                &-item {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 24px;
+                    border-bottom: 1px solid #ddd;
+                    &:last-child {
+                        border: none;
+                    }
+                    &-heading {
+                        display: flex;
+                        align-items: center;
+                        &-photo {
+                            width: 64px;
+                            height: 64px;
+                        }
+                        &-profile {
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 16px;
+                            &-name {
+                                font-size: 18px;
+                                font-weight: 600;
+                            }
+                            &-date {}
+                        }
+                        &-star {
+                            margin-left: auto;
+                            img {
+                                width: 18px;
+                                height: 18px;
+                                margin-left: -1px;
+                            }
+                        }
+                    }
+                    &-detail {
+                        margin-top: 24px;
+                        margin-bottom: 24px;
+                    }
+                }
+            }
+        }
+    }
+    &-sidebar {
+        width: 350px;
+        border: 2px solid #000;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 36px;
+        margin-bottom: 48px;
+        height: 100%;
+        &-price {
+            padding: 16px;
+            display: flex;
+            &-money {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            &-daily {
+                font-size: 20px;
+                font-weight: 500;
+                margin-left: 8px;
+            }
+        }
+        &-date {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            display: flex;
+            &-item {
+                width: 100%;
+                padding-left: 12px;
+                &:nth-child(2) {
+                    border-left: 1px solid #ddd;
+                    padding-left: 12px;
+                }
+                &-title {
+                    font-size: 14px;
+                    color: #858585;
+                }
+                &-value {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+        &-button {
+            background-color: $red;
+            height: 48px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover {
+                background-color: $darkred;
+            }
+        }
+        &-summary {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            &-list {
+                display: flex;
+                justify-content: space-between;
+                &-left {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                &-right {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+            &-seperator {
+                background-color: #ddd;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                width: 100%;
+                height: 1px;
+            }
+        }
+    }
+}
+
+.similarCaravan {
+    margin-bottom: 48px;
+    border-top: 1px solid rgb(241, 241, 241);
+    padding-top: 48px;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1450px;
+        margin: 0 auto;
+    }
+    &-list {
+        display: flex;
+        gap: 30px;
+        &-item {
+            &-photo {
+                width: 340px;
+                height: 200px;
+                border-radius: 8px;
+            }
+            &-title {
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 12px;
+            }
+            &-sub {
+                margin-top: 12px;
+                display: flex;
+                align-items: center;
+                &-info {
+                    display: flex;
+                    align-items: center;
+                    &::after {
+                        content: "•";
+                        padding-left: 16px;
+                        padding-right: 16px;
+                        color: $red;
+                    }
+                    &-icon {
+                        line-height: 1;
+                    }
+                    &-point {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-left: 8px;
+                    }
+                    &-reviewcount {
+                        margin-left: 8px;
+                    }
+                }
+                &-bed {
+                    font-size: 16px;
+                }
+            }
+            &-price {
+                margin-top: 12px;
+                &-money {
+                    font-size: 22px;
+                    font-weight: 600;
+                }
+                &-daily {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

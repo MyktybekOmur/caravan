@@ -6,9 +6,12 @@ import {
   routingAdminComponents,
 } from './pages-routing.module';
 import { MainComponent } from './main/main/main.component';
+import { CaravanComponent } from './caravan/caravan/caravan.component';
+import { HeaderComponent } from './header/header/header.component';
+import { FooterComponent } from './footer/footer/footer.component';
 
 @NgModule({
-  declarations: [MainComponent, routingAdminComponents],
+  declarations: [MainComponent, routingAdminComponents, CaravanComponent],
   imports: [CommonModule, PagesRoutingModule],
 })
 export class PagesModule {}
