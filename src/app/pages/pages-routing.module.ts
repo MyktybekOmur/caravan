@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header/header.component';
 
 import { HomeComponent } from './home/home/home.component';
 import { MainComponent } from './main/main/main.component';
+import { SearchComponent } from './search/search/search.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'camp', component: CampComponent },
       { path: 'cart', component: CartComponent },
       { path: 'finish', component: FinishComponent },
+      { path: 'search', component: SearchComponent },
     ],
   },
 ];
@@ -37,4 +39,5 @@ export const routingAdminComponents = [
   CampComponent,
   CartComponent,
   FinishComponent,
+  SearchComponent,
 ];

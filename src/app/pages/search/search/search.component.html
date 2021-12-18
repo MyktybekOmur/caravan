@@ -1,1 +1,67 @@
-<p>search works!</p>
+<main class="mainSearch">
+    <div class="container">
+        <div class="mainSearch-heading">
+            <div class="mainSearch-heading-title">Arama: Kamp</div>
+        </div>
+        <div class="mainSearch-content">
+            <div class="mainSearch-content-left">
+                <div class="mainSearch-content-left-list">
+                    <div class="mainSearch-content-left-list-item">
+                        <div class="mainSearch-content-left-list-item-photo"><img src="assets/img/kamp1.jpg" alt=""></div>
+                        <div class="mainSearch-content-left-list-item-details">
+                            <div class="mainSearch-content-left-list-item-details-name">Kemer Antalya Kamp Alanı
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-icon"><img src="assets/img/yildiz.svg" alt=""> <span>4.9</span>
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-price">350 ₺
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainSearch-content-left-list-item">
+                        <div class="mainSearch-content-left-list-item-photo"><img src="assets/img/kamp2.jpg" alt=""></div>
+                        <div class="mainSearch-content-left-list-item-details">
+                            <div class="mainSearch-content-left-list-item-details-name">Kemer İzmir Kamp Alanı
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-icon"><img src="assets/img/yildiz.svg" alt=""> <span>4.3</span>
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-price">298 ₺
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainSearch-content-left-list-item">
+                        <div class="mainSearch-content-left-list-item-photo"><img src="assets/img/kamp3.jpg" alt=""></div>
+                        <div class="mainSearch-content-left-list-item-details">
+                            <div class="mainSearch-content-left-list-item-details-name">Kemer Muğla Kamp Alanı
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-icon"><img src="assets/img/yildiz.svg" alt=""> <span>4.6</span>
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-price">268 ₺
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainSearch-content-left-list-item">
+                        <div class="mainSearch-content-left-list-item-photo"><img src="assets/img/kamp4.jpg" alt=""></div>
+                        <div class="mainSearch-content-left-list-item-details">
+                            <div class="mainSearch-content-left-list-item-details-name">Kemer Tekirdağ Kamp Alanı
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-icon"><img src="assets/img/yildiz.svg" alt=""> <span>4.4</span>
+                            </div>
+                            <div class="mainSearch-content-left-list-item-details-price">197 ₺
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainSearch-content-right">
+                <img (click)="open360Modal()" style="position:relative;width:600px;height:auto;" src="assets/img/map.png" alt="">
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="modelActive" class="modal-360-img">
+        <div (click)="open360Modal()" class="close-model"><img src="assets/img/cross.svg" alt=""></div>
+        <div id="img360">
+            <iframe width="100%" height="500px" src="https://www.airpano.com/embed.php?3D=cappadocia-turkey" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" framespacing="0" allowfullscreen> </iframe> <br>
+        </div>
+    </div>
+</main>

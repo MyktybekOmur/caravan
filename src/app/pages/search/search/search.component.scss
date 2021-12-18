@@ -1,0 +1,87 @@
+$boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+$red: #d4002a;
+$darkred: #ca0028;
+$softgray: #f9f9f9;
+$bordergray: #dddddd;
+$radius: 8px;
+$radius_small: 4px;
+.mainSearch {
+    margin-top: 30px;
+    margin-bottom: 48px;
+    display: flex;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #f4f5f7;
+        border-radius: 8px;
+        padding: 16px;
+    }
+    &-heading {
+        &-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+    &-content {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        &-left {
+            width: 50%;
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                &-item {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    &-photo {
+                        width: 50%;
+                        img {
+                            width: 100%;
+                            border-radius: 8px;
+                        }
+                    }
+                    &-details {
+                        margin-left: 12px;
+                        &-name {
+                            font-size: 18px;
+                            width: 100%;
+                            font-weight: 600;
+                        }
+                        &-icon {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 12px;
+                            span {
+                                margin-top: 4px;
+                                font-weight: 500;
+                                font-size: 18px;
+                                margin-left: 4px;
+                            }
+                        }
+                        &-price {
+                            font-size: 24px;
+                            font-weight: 600;
+                            background-color: $red;
+                            color: #fff;
+                            padding-left: 4px;
+                            padding-right: 4px;
+                            width: max-content;
+                            border-radius: 4px;
+                            margin-top: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        &-right {
+            width: 50%;
+        }
+    }
+}
