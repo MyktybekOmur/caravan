@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
       url: 'https://l13.alamy.com/360/T0EK6C/360-in-our-caravan-spot2-T0EK6C.jpg',
     },
   ];
+  modelActive = false;
   constructor() {
     this.myScriptElement = document.createElement('script');
     this.myScriptElement.src = '../../../../assets/js/flickity.pkgd.js';
@@ -31,4 +32,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  open360Modal() {
+    this.modelActive = !this.modelActive;
+    this.myScriptElement3 = document.createElement('script');
+    this.myScriptElement3.src = '../../../../assets/js/main.js';
+    document.body.appendChild(this.myScriptElement3);
+  }
 }

@@ -17,3 +17,99 @@ $boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
 *:focus {
     outline: none;
 }
+
+$boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+$red: #d4002a;
+$darkred: #ca0028;
+$softgray: #f9f9f9;
+$bordergray: #dddddd;
+$radius: 8px;
+$radius_small: 4px;
+* {
+    box-sizing: border-box;
+}
+
+.modal-360-img {
+    position: fixed;
+    margin: 0px 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+    z-index: 100;
+    .close-model {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 200;
+    }
+}
+
+.similarCaravan {
+    margin-bottom: 48px;
+    border-top: 1px solid rgb(241, 241, 241);
+    padding-top: 48px;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1450px;
+        margin: 0 auto;
+    }
+    &-list {
+        display: flex;
+        gap: 30px;
+        &-item {
+            &-photo {
+                width: 340px;
+                height: 200px;
+                border-radius: 8px;
+            }
+            &-title {
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 12px;
+            }
+            &-sub {
+                margin-top: 12px;
+                display: flex;
+                align-items: center;
+                &-info {
+                    display: flex;
+                    align-items: center;
+                    &::after {
+                        content: "•";
+                        padding-left: 16px;
+                        padding-right: 16px;
+                        color: $red;
+                    }
+                    &-icon {
+                        line-height: 1;
+                    }
+                    &-point {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-left: 8px;
+                    }
+                    &-reviewcount {
+                        margin-left: 8px;
+                    }
+                }
+                &-bed {
+                    font-size: 16px;
+                }
+            }
+            &-price {
+                margin-top: 12px;
+                &-money {
+                    font-size: 22px;
+                    font-weight: 600;
+                }
+                &-daily {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

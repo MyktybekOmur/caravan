@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CampComponent } from './camp/camp/camp.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { HeaderComponent } from './header/header/header.component';
 
@@ -10,7 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    children: [{ path: 'home', component: HomeComponent }],
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'camp', component: CampComponent },
+    ],
   },
 ];
 
@@ -24,4 +28,5 @@ export const routingAdminComponents = [
   HomeComponent,
   HeaderComponent,
   FooterComponent,
+  CampComponent,
 ];

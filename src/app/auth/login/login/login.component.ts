@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { username, password } = this.form;
     console.log(this.form);
-    this.router.navigate(['home/home']);
+    localStorage.setItem('userCaravan', JSON.stringify(this.form));
+    this.router.navigate(['/home']);
   }
   change() {
     this.regLogin = !this.regLogin;
