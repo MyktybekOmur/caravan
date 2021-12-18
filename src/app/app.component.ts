@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +11,7 @@ export class AppComponent {
   title = 'Caravan';
   userData: any = [];
   user: any = [];
+
   constructor(private router: Router) {
     this.user = localStorage.getItem('userCaravan');
     this.userData = JSON.parse(this.user);

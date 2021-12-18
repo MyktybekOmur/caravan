@@ -1,0 +1,162 @@
+$boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+$red: #d4002a;
+$darkred: #ca0028;
+$softgray: #f9f9f9;
+$bordergray: #dddddd;
+$radius: 8px;
+$radius_small: 4px;
+* {
+    box-sizing: border-box;
+}
+
+@mixin mq($width: "tablet") {
+    @if ($width=="mobile") {
+        @media (min-width: 560px) {
+            @content;
+        }
+    }
+    @else if ($width=="tablet") {
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if($width=="desktop") {
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if($width=="large") {
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+}
+
+.mainCart {
+    &-dates {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        &-weather {
+            &-heading {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            &-city {
+                font-size: 14px;
+                font-weight: 500;
+                margin-top: 24px;
+            }
+            &-list {
+                display: flex;
+                gap: 12px;
+                width: 500px;
+                &-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 25%;
+                    height: 120px;
+                    padding: 8px;
+                    border-radius: 8px;
+                    border: 1px solid #000;
+                    cursor: pointer;
+                    &-day {
+                        color: #646464;
+                        font-weight: 600;
+                        font-size: 14px;
+                    }
+                    &-degree {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 8px;
+                        &-max {
+                            font-size: 24px;
+                            font-weight: 600;
+                        }
+                        &-min {
+                            font-size: 18px;
+                            font-weight: 600;
+                            margin-left: 4px;
+                            color: #dedede;
+                        }
+                    }
+                    &-icon {
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mainChecklist {
+    margin-top: 30px;
+    display: flex;
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 1100px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #f4f5f7;
+        border-radius: 8px;
+        padding: 16px;
+    }
+    &-list {
+        &-heading {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            input {
+                appearance: none;
+                border: 1px solid black;
+                background-color: #fff;
+                border-radius: 2px;
+                width: 18px;
+                height: 18px;
+            }
+            label {
+                margin-left: 6px;
+                width: 240px;
+            }
+        }
+    }
+}
+
+.print {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    .container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+        border-radius: 8px;
+    }
+    &-button {
+        background-color: $red;
+        width: max-content;
+        padding: 8px 16px;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}

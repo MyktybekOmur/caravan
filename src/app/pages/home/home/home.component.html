@@ -8,9 +8,6 @@
 </div>
 
 
-
-
-
 <main class="caravanMain">
     <div class="container">
         <div class="caravanMain-content">
@@ -393,40 +390,42 @@
         </div>
         <div class="caravanMain-sidebar">
             <div class="caravanMain-sidebar-price">
-                <div class="caravanMain-sidebar-price-money">258 ₺</div>
+                <div class="caravanMain-sidebar-price-money">{{dailyPrice}} ₺</div>
                 <div class="caravanMain-sidebar-price-daily">/ günlük</div>
             </div>
 
             <div class="caravanMain-sidebar-date">
                 <div class="caravanMain-sidebar-date-item">
                     <div class="caravanMain-sidebar-date-item-title">Alış Tarihi</div>
-                    <div class="caravanMain-sidebar-date-item-value">Tarih Seç</div>
+                    <input [(ngModel)]="fromDate" type="text" onfocus="(this.type='date')" class="caravanMain-sidebar-date-item-value" placeholder="Tarih Seç">
                 </div>
                 <div class="caravanMain-sidebar-date-item">
                     <div class="caravanMain-sidebar-date-item-title">İade Tarihi</div>
-                    <div class="caravanMain-sidebar-date-item-value">Tarih Seç</div>
+                    <input (change)="calculate(fromDate,toDate)" id="datemin" name="datemin" min="{{fromDate}}" [disabled]="!fromDate" [(ngModel)]="toDate" type="text" onfocus="(this.type='date')" class="caravanMain-sidebar-date-item-value" placeholder="Tarih Seç">
+
                 </div>
+
             </div>
-            <div class="caravanMain-sidebar-button">
+            <div (click)="openPage()" class="caravanMain-sidebar-button">
                 Hemen Öde
             </div>
-            <div class="caravanMain-sidebar-summary">
+            <div *ngIf="totalActive" class="caravanMain-sidebar-summary">
                 <div class="caravanMain-sidebar-summary-list">
-                    <div class="caravanMain-sidebar-summary-list-left">258 ₺ x 3 gün </div>
-                    <div class="caravanMain-sidebar-summary-list-right">774 ₺</div>
+                    <div class="caravanMain-sidebar-summary-list-left">{{dailyPrice}} ₺ x {{totalDay}} gün </div>
+                    <div class="caravanMain-sidebar-summary-list-right">{{totalDailyPrice}} ₺</div>
                 </div>
                 <div class="caravanMain-sidebar-summary-list">
                     <div class="caravanMain-sidebar-summary-list-left">Rezervasyon Ücreti</div>
-                    <div class="caravanMain-sidebar-summary-list-right">120 ₺</div>
+                    <div class="caravanMain-sidebar-summary-list-right">{{bookingPrice}} ₺</div>
                 </div>
                 <div class="caravanMain-sidebar-summary-list">
                     <div class="caravanMain-sidebar-summary-list-left">Servis Ücreti</div>
-                    <div class="caravanMain-sidebar-summary-list-right">80 ₺</div>
+                    <div class="caravanMain-sidebar-summary-list-right">{{servicePrice}} ₺</div>
                 </div>
                 <div class="caravanMain-sidebar-summary-seperator"></div>
                 <div class="caravanMain-sidebar-summary-list">
                     <div class="caravanMain-sidebar-summary-list-left">Toplam</div>
-                    <div class="caravanMain-sidebar-summary-list-right">974 ₺</div>
+                    <div class="caravanMain-sidebar-summary-list-right">{{totalPrice}} ₺</div>
                 </div>
             </div>
         </div>
@@ -437,7 +436,7 @@
         <h2 class="similarCaravan-heading">Benzer Karavanlar</h2>
         <div class="similarCaravan-list">
             <div class="similarCaravan-list-item">
-                <img src="assets/img/caravan1.jpg" alt="" class="similarCaravan-list-item-photo">
+                <img style="width: 100%;" src="assets/img/caravan1.jpg" alt="" class="similarCaravan-list-item-photo">
                 <h4 class="similarCaravan-list-item-title">1978 Volkswagen Vintage Bus Westfalia</h4>
                 <div class="similarCaravan-list-item-sub">
                     <div class="similarCaravan-list-item-sub-info">
@@ -456,7 +455,7 @@
 
             </div>
             <div class="similarCaravan-list-item">
-                <img src="assets/img/caravan2.jpg" alt="" class="similarCaravan-list-item-photo">
+                <img style="width: 100%;" src="assets/img/caravan2.jpg" alt="" class="similarCaravan-list-item-photo">
                 <h4 class="similarCaravan-list-item-title">1978 Volkswagen Vintage Bus Westfalia</h4>
                 <div class="similarCaravan-list-item-sub">
                     <div class="similarCaravan-list-item-sub-info">
@@ -475,7 +474,7 @@
 
             </div>
             <div class="similarCaravan-list-item">
-                <img src="assets/img/caravan3.jpg" alt="" class="similarCaravan-list-item-photo">
+                <img style="width: 100%;" src="assets/img/caravan3.jpg" alt="" class="similarCaravan-list-item-photo">
                 <h4 class="similarCaravan-list-item-title">1978 Volkswagen Vintage Bus Westfalia</h4>
                 <div class="similarCaravan-list-item-sub">
                     <div class="similarCaravan-list-item-sub-info">
@@ -494,7 +493,7 @@
 
             </div>
             <div class="similarCaravan-list-item">
-                <img src="assets/img/caravan4.jpg" alt="" class="similarCaravan-list-item-photo">
+                <img style="width: 100%;" src="assets/img/caravan4.jpg" alt="" class="similarCaravan-list-item-photo">
                 <h4 class="similarCaravan-list-item-title">1978 Volkswagen Vintage Bus Westfalia</h4>
                 <div class="similarCaravan-list-item-sub">
                     <div class="similarCaravan-list-item-sub-info">

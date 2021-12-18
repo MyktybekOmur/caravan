@@ -51,7 +51,7 @@
                     <input type="text" placeholder="Soyadınız" />
                 </div>
             </div>
-            <form action="">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="login-left-input login-left-password">
                     <span class="login-left-input-heading">
                         E-posta Adresiniz *

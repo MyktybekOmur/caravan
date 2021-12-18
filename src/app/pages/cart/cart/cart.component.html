@@ -1,0 +1,96 @@
+<main class="mainCart">
+    <div class="container">
+        <div class="mainCart-heading">
+            <div class="mainCart-heading-title">Fethiye Kamp Alanı</div>
+            <div class="mainCart-heading-location">
+                <div class="mainCart-heading-location-icon"><img src="assets/assets/img/konum.svg" alt=""></div>
+                <div class="mainCart-heading-location-city">Fethiye, Muğla, Türkiye</div>
+            </div>
+            <div class="mainCart-heading-profile">
+                <img src="assets/img/profile1.png" alt="" class="mainCart-heading-profile-photo">
+                <div class="mainCart-heading-profile-details">
+                    <div class="mainCart-heading-profile-details-value">Konaklama Sahibi</div>
+                    <div class="mainCart-heading-profile-details-name">Faruk İpek</div>
+                </div>
+            </div>
+        </div>
+        <div class="mainCart-dates">
+            <div class="mainCart-dates-list">
+                <div class="mainCart-dates-list-item">
+                    <div class="mainCart-dates-list-item-checkin">Check-in</div>
+                    <div class="mainCart-dates-list-item-date">21 Aralık</div>
+                    <div class="mainCart-dates-list-item-time">14:00</div>
+                </div>
+                <div class="mainCart-dates-list-item">
+                    <div class="mainCart-dates-list-item-checkin">Check-in</div>
+                    <div class="mainCart-dates-list-item-date">24 Aralık</div>
+                    <div class="mainCart-dates-list-item-time">12:00</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<main class="mainContent">
+    <div class="container">
+        <div *ngIf="chect!='1'" class="mainContent-services">
+            <div class="mainContent-services-reservation">
+                <div class="mainContent-services-reservation-heading">Rezervasyonuna Ek Hizmetler</div>
+                <div class="mainContent-services-reservation-list">
+                    <div *ngFor="let item of extra" class="mainContent-services-reservation-list-item">
+                        <div class="mainContent-services-reservation-list-item-heading">
+                            <div class="mainContent-services-reservation-list-item-heading-icon"><img src="{{item.img}}" alt=""></div>
+                            <div class="mainContent-services-reservation-list-item-heading-price">{{item.price}} ₺</div>
+                        </div>
+                        <div class="mainContent-services-reservation-list-item-title">{{item.name}}</div>
+                        <div class="mainContent-services-reservation-list-item-text">{{item.desc}}</div>
+                        <div (click)="addExtraPrice(item)" class="mainContent-services-reservation-list-item-button eklendi">Ekle +</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainContent-sidebar">
+            <div class="mainContent-sidebar-heading">
+                Sepet Özeti
+            </div>
+            <div class="mainContent-sidebar-text">
+                <div class="mainContent-sidebar-text-title">Fethiye Kamp Alanı (21 Aralık - 24 Aralık)</div>
+                <div class="mainContent-sidebar-text-price">{{totalDailyPrice}} ₺</div>
+            </div>
+            <div class="mainContent-sidebar-list">
+                <div *ngFor="let item of calcExtraPrice" class="mainContent-sidebar-list-item">
+                    <div class="mainContent-sidebar-list-item-text"><img src="{{item.img}}" alt=""><span>{{item.name}}</span>
+                    </div>
+                    <div class="mainContent-sidebar-list-item-price">{{item.price}} ₺</div>
+                </div>
+            </div>
+            <div class="mainContent-sidebar-text">
+                <div class="mainContent-sidebar-text-title">Ara Toplam:</div>
+                <div class="mainContent-sidebar-text-price">{{araToplam}} ₺</div>
+            </div>
+            <div class="mainContent-sidebar-text">
+                <div class="mainContent-sidebar-text-title">Servis Ücreti:</div>
+                <div class="mainContent-sidebar-text-price">{{servicePrice}} ₺</div>
+            </div>
+            <div routerLink="/finish" class="mainContent-sidebar-button">Ödenecek Tutar: {{totalPrice}} ₺
+            </div>
+        </div>
+
+    </div>
+</main>
+<main class="mainNotes">
+    <div class="container">
+        <div class="mainNotes-notes">
+            <div class="mainNotes-notes-heading">Konaklama Sahibinden Notlar: </div>
+            <div class="mainNotes-notes-text">Kullanılabilecek 2 farklı alanımız var. Orijinal alan RV'nin yanında bulunur ve bu, kamp yapmak veya birbirine yakın olmak isteyen büyük bir aile veya arkadaş grubu için kullanılabilir. Ahırda tuvalet ve lavabo artı gerekirse donduruculu bir
+                buzdolabı bulunmaktadır.
+                <br><br> Açık ateşe veya kamp ateşine izin verilmez. Kömür ızgarası iyidir. Birkaç ağaç da hamak için iyi çalışır. İkinci alan, araba yolumuzun sonundadır ve bölgede seyahat eden ve çadır kurmak veya içinde kalacak bir araç park etmek
+                için güvenli bir yer isteyen insanlar içindir.
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="caravangif">
+    <img src="assets/img/caravan.gif" alt="">
+</div>

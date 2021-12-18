@@ -38,8 +38,8 @@
                             "src/assets/js/fullscreen.js",
                             "src/assets/js/three.min.js",
                             "src/assets/js/panolens.min.js",
-                            "src/assets/js/main.js",
-                            "src/assets/js/camp.js"
+                            "src/assets/js/main.js"
+
                         ]
                     },
                     "configurations": {

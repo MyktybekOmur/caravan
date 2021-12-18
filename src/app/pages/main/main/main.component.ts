@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  myScriptElement!: HTMLScriptElement;
-  myScriptElement2!: HTMLScriptElement;
   constructor() {}
 
   ngOnInit(): void {}

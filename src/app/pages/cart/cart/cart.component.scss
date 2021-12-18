@@ -1,0 +1,213 @@
+$boxshadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+$red: #d4002a;
+$darkred: #ca0028;
+$softgray: #f9f9f9;
+$bordergray: #dddddd;
+$radius: 8px;
+$radius_small: 4px;
+* {
+    box-sizing: border-box;
+}
+
+@mixin mq($width: "tablet") {
+    @if ($width=="mobile") {
+        @media (min-width: 560px) {
+            @content;
+        }
+    }
+    @else if ($width=="tablet") {
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if($width=="desktop") {
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if($width=="large") {
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+}
+
+.mainContent {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+    }
+    &-services {
+        width: 820px;
+        padding: 16px;
+        padding-bottom: 56px;
+        border-radius: 8px;
+        background-color: #f4f5f7;
+        &-reservation {
+            &-heading {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            &-list {
+                display: flex;
+                align-items: flex-start;
+                gap: 24px;
+                margin-top: 24px;
+                &-item {
+                    border: 1px solid #ddd;
+                    width: 25%;
+                    height: 170px;
+                    padding: 16px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover {
+                        background-color: #f1f1f1;
+                    }
+                    &-heading {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        &-icon {
+                            line-height: 1;
+                        }
+                        &-price {
+                            background-color: $red;
+                            padding: 2px 8px;
+                            color: #fff;
+                            border-radius: 4px;
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+                    }
+                    &-title {
+                        margin-top: 16px;
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                    &-text {
+                        font-size: 13px;
+                        margin-top: 8px;
+                    }
+                    &-button {
+                        background-color: $red;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #fff;
+                        position: absolute;
+                        bottom: -32px;
+                        width: 50%;
+                        left: 25%;
+                        right: 25%;
+                        border-radius: 0px 0px 4px 4px;
+                    }
+                }
+            }
+        }
+    }
+    &-sidebar {
+        width: 350px;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: #f4f5f7;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        &-heading {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            &-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &-text {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        line-height: 1;
+                        width: 24px;
+                    }
+                    span {
+                        margin-left: 8px;
+                    }
+                }
+                &-price {
+                    font-size: 16px;
+                    font-weight: 600;
+                    min-width: max-content;
+                }
+            }
+        }
+        &-text {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &-title {
+                font-size: 14px;
+                font-weight: 600;
+            }
+            &-price {
+                font-size: 16px;
+                font-weight: 600;
+                min-width: max-content;
+            }
+        }
+        &-button {
+            background-color: $red;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}
+
+.mainNotes {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #f4f5f7;
+        border-radius: 8px;
+        padding: 24px;
+    }
+    &-notes {
+        &-heading {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        &-text {
+            margin-top: 24px;
+        }
+    }
+}
+
+.eklendi {
+    background-color: #ababab;
+    content: "Eklendi";
+}

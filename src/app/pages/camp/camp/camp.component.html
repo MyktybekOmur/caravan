@@ -130,37 +130,13 @@
             <div class="kampMain-content-reservation">
                 <div class="kampMain-content-reservation-heading">Rezervasyonuna Ek Hizmetler</div>
                 <div class="kampMain-content-reservation-list">
-                    <div class="kampMain-content-reservation-list-item">
+                    <div *ngFor="let ex of extra" class="kampMain-content-reservation-list-item">
                         <div class="kampMain-content-reservation-list-item-heading">
-                            <div class="kampMain-content-reservation-list-item-heading-icon"><img src="assets/img/fire.svg" alt=""></div>
-                            <div class="kampMain-content-reservation-list-item-heading-price">50 ₺</div>
+                            <div class="kampMain-content-reservation-list-item-heading-icon"><img src="{{ex.img}}" alt=""></div>
+                            <div class="kampMain-content-reservation-list-item-heading-price">{{ex.price}} ₺</div>
                         </div>
-                        <div class="kampMain-content-reservation-list-item-title">Yakacak Odun</div>
-                        <div class="kampMain-content-reservation-list-item-text">Kamp ateşiniz için bir demet yakacak odun.</div>
-                    </div>
-                    <div class="kampMain-content-reservation-list-item">
-                        <div class="kampMain-content-reservation-list-item-heading">
-                            <div class="kampMain-content-reservation-list-item-heading-icon"><img src="assets/img/kayak.svg" alt=""></div>
-                            <div class="kampMain-content-reservation-list-item-heading-price">85 ₺</div>
-                        </div>
-                        <div class="kampMain-content-reservation-list-item-title">Kayık Kiralama</div>
-                        <div class="kampMain-content-reservation-list-item-text">Kamp alanınızda kullanmak için günlük kayık kiralama hizmeti.</div>
-                    </div>
-                    <div class="kampMain-content-reservation-list-item">
-                        <div class="kampMain-content-reservation-list-item-heading">
-                            <div class="kampMain-content-reservation-list-item-heading-icon"><img src="assets/img/pizza.svg" alt=""></div>
-                            <div class="kampMain-content-reservation-list-item-heading-price">80 ₺</div>
-                        </div>
-                        <div class="kampMain-content-reservation-list-item-title">Pizza</div>
-                        <div class="kampMain-content-reservation-list-item-text">Vardığınız gün sizin için sıcak pizza hazır olacaktır.</div>
-                    </div>
-                    <div class="kampMain-content-reservation-list-item">
-                        <div class="kampMain-content-reservation-list-item-heading">
-                            <div class="kampMain-content-reservation-list-item-heading-icon"><img src="assets/img/fish.svg" alt=""></div>
-                            <div class="kampMain-content-reservation-list-item-heading-price">200 ₺</div>
-                        </div>
-                        <div class="kampMain-content-reservation-list-item-title">Balıkcılık Ekipmanı</div>
-                        <div class="kampMain-content-reservation-list-item-text">Konaklamanız için Balık tutma ekipmanı sağlanacaktır.</div>
+                        <div class="kampMain-content-reservation-list-item-title">{{ex.name}}</div>
+                        <div class="kampMain-content-reservation-list-item-text">{{ex.desc}}</div>
                     </div>
                 </div>
             </div>
@@ -481,40 +457,38 @@
         </div>
         <div class="kampMain-sidebar">
             <div class="kampMain-sidebar-price">
-                <div class="kampMain-sidebar-price-money">258 ₺</div>
+                <div class="kampMain-sidebar-price-money">{{dailyPrice}} ₺</div>
                 <div class="kampMain-sidebar-price-daily">/ günlük</div>
             </div>
 
             <div class="kampMain-sidebar-date">
                 <div class="kampMain-sidebar-date-item">
                     <div class="kampMain-sidebar-date-item-title">Alış Tarihi</div>
-                    <div class="kampMain-sidebar-date-item-value">Tarih Seç</div>
+                    <input [(ngModel)]="fromDate" type="text" onfocus="(this.type='date')" class="caravanMain-sidebar-date-item-value" placeholder="Tarih Seç">
                 </div>
                 <div class="kampMain-sidebar-date-item">
                     <div class="kampMain-sidebar-date-item-title">İade Tarihi</div>
-                    <div class="kampMain-sidebar-date-item-value">Tarih Seç</div>
+                    <input (change)="calculate()" id="datemin" name="datemin" min="{{fromDate}}" [disabled]="!fromDate" [(ngModel)]="toDate" type="text" onfocus="(this.type='date')" class="caravanMain-sidebar-date-item-value" placeholder="Tarih Seç">
                 </div>
             </div>
-            <div class="kampMain-sidebar-button">
+            <div (click)="openPage()" class="kampMain-sidebar-button">
                 Hemen Öde
             </div>
-            <div class="kampMain-sidebar-summary">
+            <div *ngIf="totalActive" class="kampMain-sidebar-summary">
                 <div class="kampMain-sidebar-summary-list">
-                    <div class="kampMain-sidebar-summary-list-left">258 ₺ x 3 gün </div>
-                    <div class="kampMain-sidebar-summary-list-right">774 ₺</div>
+                    <div class="kampMain-sidebar-summary-list-left">{{dailyPrice}} ₺ x {{totalDay}} gün </div>
+                    <div class="kampMain-sidebar-summary-list-right">{{totalDailyPrice}} ₺</div>
                 </div>
-                <div class="kampMain-sidebar-summary-list">
-                    <div class="kampMain-sidebar-summary-list-left">Rezervasyon Ücreti</div>
-                    <div class="kampMain-sidebar-summary-list-right">120 ₺</div>
+                <div *ngFor="let item of calcExtraPrice" class="kampMain-sidebar-summary-list">
+                    <div class="kampMain-sidebar-summary-list-left">{{item.name}}</div>
+                    <div class="kampMain-sidebar-summary-list-right">{{item.price}} ₺</div>
                 </div>
-                <div class="kampMain-sidebar-summary-list">
-                    <div class="kampMain-sidebar-summary-list-left">Servis Ücreti</div>
-                    <div class="kampMain-sidebar-summary-list-right">80 ₺</div>
-                </div>
+
+
                 <div class="kampMain-sidebar-summary-seperator"></div>
                 <div class="kampMain-sidebar-summary-list">
                     <div class="kampMain-sidebar-summary-list-left">Toplam</div>
-                    <div class="kampMain-sidebar-summary-list-right">974 ₺</div>
+                    <div class="kampMain-sidebar-summary-list-right">{{totalPrice}} ₺</div>
                 </div>
             </div>
         </div>

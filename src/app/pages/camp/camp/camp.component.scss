@@ -514,25 +514,6 @@ $radius_small: 4px;
     }
 }
 
-.caravangif {
-    background-color: $red;
-    img {
-        width: 240px;
-        position: relative;
-        position: relative;
-        animation: mymove 16s infinite;
-    }
-}
-
-@keyframes mymove {
-    from {
-        left: calc(100% - 240px);
-    }
-    to {
-        left: -240px;
-    }
-}
-
 .removedot::after {
     content: "";
 }

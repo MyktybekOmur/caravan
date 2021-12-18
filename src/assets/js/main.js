@@ -8,13 +8,14 @@ img = '';
 function addPhoto(img1) {
     img = img1;
     console.log(img);
-
-
-
-
-
+    panorama = new PANOLENS.ImagePanorama(img);
 }
-panorama = new PANOLENS.ImagePanorama('https://l13.alamy.com/360/T0EK6C/360-in-our-caravan-spot2-T0EK6C.jpg');
+
+function deleteDiv() {
+    var myobj = document.getElementsByClassName("panolens-container");
+    myobj.remove();
+}
+
 container = document.querySelector('#img360');
 
 infospot = new PANOLENS.Infospot(350, PANOLENS.DataImage.Info);
