@@ -11,10 +11,10 @@ export class CampComponent implements OnInit {
   modelActive = false;
   constructor() {
     this.myScriptElement = document.createElement('script');
-    this.myScriptElement.src = '../../../../assets/js/flickity.pkgd.js';
+    this.myScriptElement.src = 'assets/js/flickity.pkgd.js';
     document.body.appendChild(this.myScriptElement);
     this.myScriptElement2 = document.createElement('script');
-    this.myScriptElement2.src = '../../../../assets/js/fullscreen.js';
+    this.myScriptElement2.src = 'assets/js/fullscreen.js';
     document.body.appendChild(this.myScriptElement2);
   }
 
