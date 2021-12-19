@@ -22,6 +22,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'finish', component: FinishComponent },
       { path: 'search', component: SearchComponent },
+      { path: '', redirectTo: '', pathMatch: 'full' },
     ],
   },
 ];
