@@ -7,6 +7,7 @@ import {
 } from './pages-routing.module';
 import { MainComponent } from './main/main/main.component';
 import { CaravanComponent } from './caravan/caravan/caravan.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { CampComponent } from './camp/camp/camp.component';
 import { FormsModule } from '@angular/forms';
@@ -25,5 +26,6 @@ import { SearchComponent } from './search/search/search.component';
     SearchComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, FormsModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
 export class PagesModule {}

@@ -7,7 +7,7 @@
             <p class="login-left-desc">
                 Kiralık araç filosunda her segmente yer veren Avis, geniş bir kiralık araç filosuna sahiptir.
             </p>
-            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
                 <div class="login-left-input">
                     <span class="login-left-input-heading">E-Posta</span>
                     <input type="text" name="username" [(ngModel)]="form.username" required #username="ngModel" placeholder="mail@setur.com" />
